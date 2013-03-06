@@ -28,11 +28,27 @@
 		
 				<div data-role="page" id="home">
 				
-					<header data-role="header" data-position="fixed">
+					<header data-role="header" data-position="fixed" data-add-back-btn="true">
 						<h1>In a Minute</h1>
 					</header>
 					
 					<section>
+					
+					<a href="#addItem" data-role="button" data-inline="true" data-ajax="false" class="addItemButton">Make a reservation!</a><br><br>
+					
+					
+					<ul data-role="listview" data-inset="true">
+						
+						<li>
+						
+							<a href="#dataPage">
+							<h3>Data Page</h3>
+							</a>
+							
+						</li>
+						
+					</ul>
+
 					
 					</section>
 				
@@ -45,13 +61,74 @@
 					</header>
 					
 					<section>
+					
+					<form action="" id="waitForm"><!--form open-->
+						
+						<div data-role="fieldcontain"><!--lastName open-->
+						
+							<label for="lastName">Last Name  *Required</label>
+							<input type="text" name="lastName" id="lastName" placeholder="Murphy" class="required"/>
+							
+						</div><!--lastName closed-->
+						
+						
+						<div data-role="fieldcontain"><!--phoneNumber open-->
+						
+							<label for="phoneNumber">Phone Number  *Required</label>
+							<input type="text" name="phoneNumber" id="phoneNumber" placeholder="899-596-8015" class="required phoneUS"/>
+							
+						</div><!--phoneNumber closed-->
+						
+												
+						<div data-role="fieldcontain"><!--select open-->
+						
+							<label for="pools">Pick a Restaurant!</label>
+							
+									<select name="restaurant" id="restaurant" data-native-menu="false"/>
+										<option value"#">Choose a Restaurant</option>
+										<option value"oliveGarden">Olive Garden</option>
+										<option value"redLobster">Red Lobster</option>
+										<option value"chilis">Chili's</option>
+										<option value"applebees">Applebee's</option>
+										<option value"longHorn">LongHorn</option>
+										<option value"rubyTuesdays">Ruby Tuesday's</option>
+									</select>
+								
+						</div><!--select closed-->
+						
+						<div data-role="fieldcontain"><!--select open-->
+						
+							<label for="pools">How many in your Party?</label>
+							
+									<select name="numberOfPeople" id="numberOfPeople" data-native-menu="false"/>
+										<option value"#">Choose an Amount</option>
+										<option value"twoPeople">Two</option>
+										<option value"threePeople">Three</option>
+										<option value"fourPeople">Four</option>
+										<option value"fivePeople">Five</option>
+										<option value"sixPeople">Six</option>
+										<option value"more">Seven or more</option>
+									</select>
+								
+						</div><!--select closed-->
+						
+						<div data-role="fieldcontain"><!--form buttons open-->
+							
+							<input type="submit" id="submit" value="Add Lifeguard"/>
+							<input type="reset" id="reset" value="Reset"/>
+							
+						</div><!--form buttons closed-->
+						
+					
+				</form><!--form closed-->		
+
 					</section>
 				
 				</div>
 
 				<div data-role="page" id="dataPage">
 				
-					<header data-role="header" data-position="fixed">
+					<header data-role="header" data-position="fixed" data-add-back-btn="true">
 						<h1>In a Minute</h1>
 					</header>
 					
@@ -62,7 +139,7 @@
 
 				<div data-role="page" id="showDataPage">
 				
-					<header data-role="header" data-position="fixed">
+					<header data-role="header" data-position="fixed" data-add-back-btn="true">
 						<h1>In a Minute</h1>
 					</header>
 					
