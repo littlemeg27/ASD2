@@ -69,6 +69,7 @@
 		$('json').attr? //This might work? whole point is i want it to have links
 		//Delete and Edit Item links
 		//Could be something to do with the .attr 
+		});
 		
 		$('#deleteItem').on('click', function()
 		{
@@ -80,6 +81,8 @@
 		//code to edit item
 		}
 		
+		//Not sure if i have to do any of the above things, but you said it was supposed to be the CRUD 
+		//So I figured i would have to do this.
 		*/
 			
 		
