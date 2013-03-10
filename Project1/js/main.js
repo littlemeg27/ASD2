@@ -17,6 +17,7 @@
 				
 				$.each(reservation, function(key)
 				{
+					alert("Im inside getData");
 					console.log(key, reservation[key]);
 				});
 			};
@@ -58,9 +59,11 @@
 			   		item = "No reservations saved";
 			   			
 			   	else(item.length == 0)
-			   	{
+			   	{	
+			   		alert("Im inside saveData");
 				   	item = "No reservations saved"
 				   	$('.storeItem').text(item);
+				   	location.reload();
 			   	}
 		   	});
 			
@@ -74,33 +77,5 @@
 			
 		});
 		
-		
-		/*
-		
-		Other things:
-		
-		$('makeItemLinks')
-		{
-		
-		//When the json loads make each item hold item links each
-		$('json').attr? //This might work? whole point is i want it to have links
-		//Delete and Edit Item links
-		//Could be something to do with the .attr 
-		});
-		
-		$('#deleteItem').on('click', function()
-		{
-		//code to delete item
-		}
-		
-		$('#editItem').on('click', function()
-		{
-		//code to edit item
-		}
-		
-		//Not sure if i have to do any of the above things, but you said it was supposed to be the CRUD 
-		//So I figured i would have to do this.
-		*/
-			
 		
 		
