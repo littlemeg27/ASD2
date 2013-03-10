@@ -45,7 +45,24 @@
                   
                 localStorage.setItem(id, JSON.stringify(item)); //Save data in not local storage: Use Stringify to convert our object to a string.
                 alert("Reservation Saved!");
-			});
+		   	});
+		   	
+		   	
+		   	$('#displayData').on('click', function()
+		   	{
+			   $.mobile.changepage('#showDataPage');
+			   
+			   var item = localStorage.getData(key);
+			   
+			   	if(item = null)
+			   		item = "No reservations saved";
+			   			
+			   	else(item.length == 0)
+			   	{
+				   	item = "No reservations saved"
+				   	$('.storeItem').text(item);
+			   	}
+		   	});
 			
 			
 					

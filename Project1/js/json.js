@@ -1,4 +1,4 @@
-var json = 
+var resurvation = 
 {
 "contact1":
       {
