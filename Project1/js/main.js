@@ -11,7 +11,7 @@
 		{
 			
 			
-			var getData = function()
+			var getItem = function()
 			{
 				json = JSON.parse(reservation);		
 				
@@ -22,7 +22,7 @@
 				});
 			};
 		
-			$('#saveData').on('click', function(key)
+			$('#saveData').on('click', function()
 			{
 				var key;
 				var id;
@@ -49,17 +49,17 @@
 		   	});
 		   	
 		   	
-		   	$('#displayData').on('click', function()
+		   	$('#displayData').on('click', function(key)
 		   	{
-   			    var item = localStorage.getData(key);
+   			    var item = localStorage.getItem(key);
 			   
 			   	if(item.length === 0)
-			   		item = "No reservations saved";
+			   	{	item = "No reservations saved";	}
 			   			
 			   	else
 			   	{	
 			   		alert("Im inside saveData");
-				   	item = "No reservations saved"
+				   	item = "No reservations saved";
 				   	$('.storeItem').text(item);
 				   	location.reload();
 			   	}
