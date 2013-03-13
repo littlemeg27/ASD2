@@ -60,7 +60,7 @@
 			   	else
 			   	{	
 			   		alert("Im inside displayData");
-				   	item = "Reservations saved";
+				   	item = "There are reservations saved";
 				   	$('.storeItem').text(item);
 				   	location.reload();
 			   	}
