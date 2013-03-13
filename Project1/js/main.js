@@ -51,20 +51,21 @@
 		   	
 		   	$('#displayData').on('click', function()
 		   	{
-			   $.mobile.changepage('#showDataPage');
+   			    var item = localStorage.getData(key);
 			   
-			   var item = localStorage.getData(key);
-			   
-			   	if(item = null)
+			   	if(item.length === 0)
 			   		item = "No reservations saved";
 			   			
-			   	else(item.length == 0)
+			   	else
 			   	{	
 			   		alert("Im inside saveData");
 				   	item = "No reservations saved"
 				   	$('.storeItem').text(item);
 				   	location.reload();
 			   	}
+			   	
+			    $.mobile.changepage('#showDataPage');
+
 		   	});
 			
 			
