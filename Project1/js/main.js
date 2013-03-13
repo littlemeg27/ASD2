@@ -53,7 +53,9 @@
 		   	{
    			    var item = localStorage.getItem(key);
 			   
-			   	if(item.length === 0)
+			   	if(item.length === 0) //Item is right, thought maybe it wasnt because the json isnt called item but i set item
+			   						//on the line above, and i know its saving so it shouldnt be a null value because it has value. 
+			   						//Because the saveData is saving with a key.
 			   	{	item = "No reservations saved";	}
 			   			
 			   	else
