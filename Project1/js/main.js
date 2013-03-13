@@ -53,15 +53,14 @@
 		   	{
    			    var item = localStorage.getItem(key);
 			   
-			   	if(item.length === 0) //Item is right, thought maybe it wasnt because the json isnt called item but i set item
-			   						//on the line above, and i know its saving so it shouldnt be a null value because it has value. 
-			   						//Because the saveData is saving with a key.
+			   	if(localStorage.length === 0) 
+			   	
 			   	{	item = "No reservations saved";	}
 			   			
 			   	else
 			   	{	
 			   		alert("Im inside displayData");
-				   	item = "No reservations saved";
+				   	item = "Reservations saved";
 				   	$('.storeItem').text(item);
 				   	location.reload();
 			   	}
