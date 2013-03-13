@@ -58,7 +58,7 @@
 			   			
 			   	else
 			   	{	
-			   		alert("Im inside saveData");
+			   		alert("Im inside displayData");
 				   	item = "No reservations saved";
 				   	$('.storeItem').text(item);
 				   	location.reload();
