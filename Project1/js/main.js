@@ -44,13 +44,13 @@
                 item.restaurant       =["Restaurant:", $("#restaurant").val()];    
                 item.numberOfPeople   =["Number Of People:", $("#numberOfPeople").val()];  
                   
-                localStorage.setItem(id, JSON.stringify(item)); //Save data in not local storage: Use Stringify to convert our object to a string.
+                localStorage.setItem(id, JSON.stringify(item)); 
                 alert("Reservation Saved!");
 		   	});
 		   	
 		   	
 		   
-		   	$('#displayData').on('click', function(key)
+		   	$('#displayData').on('click', function(key) 
 		   	{
    			    var item = localStorage.getItem(key);
 			   
@@ -75,7 +75,7 @@
 			
 		});
 		
-		$('#showDataPage').on('click', function()
+		$('#showDataPage').on('pageinit', function()
 		{
 			
 		});
