@@ -51,7 +51,8 @@
 		   
 		});
 		
-		$('#showDataPage').on('pageinit', function(key)
+		$('#showDataPage').on('pageinit', function(key)//Since once i init into the page this shoud run, should i change it? 
+														//Should i make it have a changepage and then change to this page?
 		{
 			 var item = localStorage.getItem(key);
 			   
