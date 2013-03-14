@@ -47,12 +47,13 @@
                 localStorage.setItem(id, JSON.stringify(item)); 
                 alert("Reservation Saved!");
 		   	});
-		   	
-		   	
 		   
-		   	$('#displayData').on('click', function(key) 
-		   	{
-   			    var item = localStorage.getItem(key);
+		   
+		});
+		
+		$('#showDataPage').on('pageinit', function(key)
+		{
+			 var item = localStorage.getItem(key);
 			   
 			   	if(localStorage.length === 0) 
 			   	
@@ -65,18 +66,10 @@
 				   	location.reload();
 			   	}
 			   	
-			    $.mobile.changePage( "#showDataPage", 
+			    $.mobile.changePage( "#dataPage", 
 			    {transition: "pop"});
 
-		   	});
 			
-			
-					
-			
-		});
-		
-		$('#showDataPage').on('pageinit', function()
-		{
 			
 		});
 		
