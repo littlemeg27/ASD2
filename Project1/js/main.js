@@ -18,7 +18,7 @@
 				   	location.reload();
 			   	}
 			   	
-			    $.mobile.changePage( "#showDataPage", 
+			    $.mobile.changePage( "#home", 
 			    {transition: "pop"});
 
 		});
@@ -33,7 +33,6 @@
 				
 				$.each(reservation, function(key)
 				{
-					alert("Im inside getData");
 					console.log(key, reservation[key]);
 				});
 			};
