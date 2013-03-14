@@ -22,7 +22,7 @@
 				});
 			};
 		
-			$('#saveData').on('click', function()
+			$('#saveData').on('click', function(item,key)
 			{
 				var key;
 				var id;
