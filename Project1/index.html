@@ -7,7 +7,7 @@
 
 	<html>
 	
-		<header>
+		<head>
 			<meta charset= "utf-8"/>
 			<meta name= "description" content= "resturant, waits"/>
 			<meta name= "keywords" content= "resturant, wait"/>
@@ -15,6 +15,7 @@
 			<meta name= "HandheldFriendly" content= "True">
 			<meta name= "MobileOptimized" content= "320" />
 			<meta name= "viewport" 	 content="width=device-width, initial-scale=1.0"/>
+			<title> In a minute </title>
 			
 		<!--css files here-->
 			<link rel="stylesheet" href="themes/inAMinute.min.css" type="text/css"/>
@@ -24,7 +25,7 @@
 			
 		<!--Modernizr goes here-->
 			<script src="js/libs/modernizr.custom.64724.js"></script>		
-		</header>
+		</head>
 
 		<body>
 		
@@ -61,7 +62,7 @@
 					
 					<section>
 					
-					<form action="" id="waitForm"><!--form open-->
+					<form action="main.js" id="waitForm"><!--form open-->
 						
 						<div data-role="fieldcontain"><!--lastName open-->
 						
@@ -84,13 +85,13 @@
 							<label for="pools">Pick a Restaurant!</label>
 							
 									<select name="restaurant" id="restaurant" data-native-menu="false">
-										<option value"#">Choose a Restaurant</option>
-										<option value"oliveGarden">Olive Garden</option>
-										<option value"redLobster">Red Lobster</option>
-										<option value"chilis">Chili's</option>
-										<option value"applebees">Applebee's</option>
-										<option value"longHorn">LongHorn</option>
-										<option value"rubyTuesdays">Ruby Tuesday's</option>
+										<option value="#">Choose a Restaurant</option>
+										<option value="oliveGarden">Olive Garden</option>
+										<option value="redLobster">Red Lobster</option>
+										<option value="chilis">Chili's</option>
+										<option value="applebees">Applebee's</option>
+										<option value="longHorn">LongHorn</option>
+										<option value="rubyTuesdays">Ruby Tuesday's</option>
 									</select>
 								
 						</div><!--select closed-->
@@ -100,13 +101,13 @@
 							<label for="pools">How many in your Party?</label>
 							
 									<select name="numberOfPeople" id="numberOfPeople" data-native-menu="false">
-										<option value"#">Choose an Amount</option>
-										<option value"two">Two</option>
-										<option value"three">Three</option>
-										<option value"four">Four</option>
-										<option value"five">Five</option>
-										<option value"six">Six</option>
-										<option value"more">Seven or more</option>
+										<option value="#">Choose an Amount</option>
+										<option value="two">Two</option>
+										<option value="three">Three</option>
+										<option value="four">Four</option>
+										<option value="five">Five</option>
+										<option value="six">Six</option>
+										<option value="more">Seven or more</option>
 									</select>
 								
 						</div><!--select closed-->
