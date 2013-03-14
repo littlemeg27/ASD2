@@ -48,6 +48,9 @@
                 alert("Reservation Saved!");
 		   	});
 		   	
+		   	$.mobile.changePage( "showDataPage", 
+			{ transition: "pop"});
+		   	
 		   	
 		   	$('#displayData').on('click', function(key)
 		   	{
