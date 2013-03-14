@@ -4,7 +4,23 @@
 
 		$('#home').on('pageinit', function()
 		{
-			
+		
+   			    var item = localStorage.getItem(key);
+			   
+			   	if(localStorage.length === 0) 
+			   	
+			   	{	item = "No reservations saved";	}
+			   			
+			   	else
+			   	{	
+				   	item = "There are reservations saved";
+				   	$('.storeItem').text(item);
+				   	location.reload();
+			   	}
+			   	
+			    $.mobile.changePage( "#showDataPage", 
+			    {transition: "pop"});
+
 		});
 		
 		$('#addItem').on('pageinit', function()
@@ -49,36 +65,9 @@
 		   	});
 		   	
 		   	
-		   
-		   	$('#displayData').on('click', function(key) 
-		   	{
-   			    var item = localStorage.getItem(key);
-			   
-			   	if(localStorage.length === 0) 
-			   	
-			   	{	item = "No reservations saved";	}
-			   			
-			   	else
-			   	{	
-				   	item = "There are reservations saved";
-				   	$('.storeItem').text(item);
-				   	location.reload();
-			   	}
-			   	
-			    $.mobile.changePage( "#showDataPage", 
-			    {transition: "pop"});
-
-		   	});
-			
+		   			
 			
 					
 			
 		});
-		
-		$('#showDataPage').on('pageinit', function()
-		{
-			
-		});
-		
-		
-		
+	
