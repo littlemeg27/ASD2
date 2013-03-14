@@ -66,7 +66,7 @@
 			   	}
 			   	
 			    $.mobile.changePage( "#showDataPage", 
-			    { transition: "pop"});
+			    {transition: "pop"});
 
 		   	});
 			
