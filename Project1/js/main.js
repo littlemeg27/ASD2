@@ -48,10 +48,8 @@
                 alert("Reservation Saved!");
 		   	});
 		   	
-		   	$.mobile.changePage( "showDataPage", 
-			{ transition: "pop"});
 		   	
-		   	
+		   
 		   	$('#displayData').on('click', function(key)
 		   	{
    			    var item = localStorage.getItem(key);
@@ -62,13 +60,13 @@
 			   			
 			   	else
 			   	{	
-			   		alert("Im inside displayData");
 				   	item = "There are reservations saved";
 				   	$('.storeItem').text(item);
 				   	location.reload();
 			   	}
 			   	
-			    $.mobile.changepage('#showDataPage');
+			    $.mobile.changePage( "#showDataPage", 
+			    { transition: "pop"});
 
 		   	});
 			
