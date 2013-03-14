@@ -57,7 +57,9 @@
 			   
 			   	if(localStorage.length === 0) 
 			   	
-			   	{	item = "No reservations saved";	}
+			   	{	item = "No reservations saved";	
+				   	//Going to put a call to the json here, jenn said this would be able to work for assignment?
+			   	}
 			   			
 			   	else
 			   	{	
@@ -65,12 +67,7 @@
 				   	$('.storeItem').text(item);
 				   	location.reload();
 			   	}
-			   	
-			    $.mobile.changePage( "#dataPage", 
-			    {transition: "pop"});
-
-			
-			
+			 
 		});
 		
 		
