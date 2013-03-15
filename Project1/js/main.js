@@ -18,10 +18,40 @@
                 
                 $.each(reservation, function(key)
                 {
-                    alert("Im inside getData");
                     console.log(key, reservation[key]);
                 });
             };
+            
+            var myForm = $('#waitForm');
+				var errorFormLink = $('#errorFormLink');
+				
+			
+			myForm.validate(
+			{
+				    
+					invalidHandler: function(form, validator) 
+					{
+						errorFormLink.click();
+						var html = '';
+						
+						for(var key in validator.submitted)
+						{
+							var label = $('[for^="'+ key +'"]');
+							var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+							var fieldName = legend.length ? legend.text() : label.text();
+							html += '<li>'+fieldName+'</li>';
+						}
+						
+						$("#errorFormPage ul").html(html);
+					},
+					
+					submitHandler: function() 
+					{
+						var data = myForm.serializeArray();
+						storeData(data);
+					}
+			});
+
         
             $('#saveData').on('click', function(item)
             {
@@ -75,6 +105,7 @@
                    {    
                        alert("No reservations saved!");
                        //Going to put a call to the json here, jenn said this would be able to work for assignment?
+                       function callJSON(); 
                    }
                            
                    else
@@ -89,21 +120,75 @@
                    {
                        reservation[key] = JSON.stringify(
                        {
-                        "Last Name": $("#lastName").val(),
-                        "Phone Number": $("#phoneNumber").val(),
-                        "Restaurant": $("#restaurant").val(),   
-                        "Number Of People": $("#numberOfPeople").val()
+                        $('#lastName').val(item.lastName[1]);
+                        $('#phoneNumber').val(item.phoneNumber[1]);
+                        $('#restaurant').val(item.restaurant[1]);
+                        $('#numberOfPeople').val(item.numberOfPeople[1]);
                        });//Alter the selected item on the table
                     
                         localStorage.setItem(reservation, JSON.stringify(item)); 
-                        alert("The data was edited.");
+                        alert("The reservation was edited!");
                         return true;
                    });
 
 
+                   $('#deleteData').on('click', function(item,key,reservation)
+                   {
+                       var id;
+                       
+	                   $.each(reservation, function(key)
+	                   {
+	                       reservation.splice(key);
+	                       localStorage.setItem(id, JSON.stringify(item)); 
+	                       alert("Reservation deleted!");
+	                   });
+                   
+	               });
+
 
              
         }); //End of dataPage
+        
+        //With this im working off a lot of stuff that i found online, im not sure if im pushing though the right variables etc. 
+        //It is jquery but i wish i understood it a bit better so that i could make sure it works.
+       
+           
+               var callJSON = function()
+                {
+                console.log($("#loadJSON"));
+                
+                        $('#dataPage').empty();
+                        $.ajax(
+                        {    
+                                url: "xhr/data.json", //What i am getting
+                                type: "GET", //I am getting not posting 
+                                dataType : "json", //Getting JSON data, located in data.json   
+                                success:function(result) //Going to use dataCall for the name to call my data
+                                {
+                                    
+                                        console.log("This is my JSON Data", result); 
+                                       
+                                            
+                                            for(var i=0, len=result.reservation.length; i<len; i++)//for loop to read the whole json
+                                            {
+                                                var item = result.reservation[i];
+                                               
+                                                
+                                                $('' +  
+                                                       	'<li>' +
+                                                        	'<h3>' + item.lastName[1] + '<br>' + '</h3>'+ 
+                                                        	'<p>' + item.phoneNumber[1] + '</p>'+
+                                                        '</li>' 
+                                                 ).appendTo("#dataPage");
+                                            }
+                                            $('#dataPage').listview();
+                                
+                                }
+                       
+                       });
+            
+                });
+
         
         
         
