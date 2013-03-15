@@ -13,7 +13,7 @@
 			
 			var getItem = function()
 			{
-				json = JSON.parse(reservation);		
+				json = JSON.parse(item);		
 				
 				$.each(reservation, function(key)
 				{
@@ -49,7 +49,7 @@
                 
            	});
            	
-           	$('#deleteData').on('click', function(key)
+           	$('#deleteData').on('click', function(item,key)
            	{
            		$.each(reservation, function(key)
            		{
@@ -63,7 +63,7 @@
 		   
 		});
 		
-		$('#dataPage').on('pageinit', function(key)//Since once i init into the page this should run, should i change it? 
+		$('#dataPage').on('pageinit', function(item, key)//Since once i init into the page this should run, should i change it? 
 														//Should i make it have a changepage and then change to this page?
 		{
 			 var item = localStorage.getItem(key);
@@ -84,10 +84,11 @@
 			   	}
 			   	
 			   	
-			   	$('#editItem').on('click',function(key)
+			 /* 	$('#editItem').on('click',function(item, key)
 			   	{
 			   	    reservation[selected_index] = JSON.stringify(
 			   	    {
+			   	    var item                  = {};
 				   	    item.lastName         =["Last Name:", $("#lastName").val()];
 		                item.phoneNumber      =["Phone Number:", $("#phoneNumber").val()];
 		                item.restaurant       =["Restaurant:", $("#restaurant").val()];    
@@ -99,7 +100,7 @@
 					    alert("The data was edited.")
 					    operation = "A"; //Return to default value
 					    return true;
-			    });
+			    });*/
 
 
 
