@@ -54,7 +54,7 @@
            		$.each(reservation, function(key)
            		{
 		           	reservation.splice(0, 20);
-		           	localStorage.setItem("reservation", JSON.stringify(reservation));
+		           	localStorage.setItem(id, JSON.stringify(item)); 
 		           	alert("All reservations deleted!");
 	           	});
 	           	
@@ -82,8 +82,29 @@
 				   	$('.storeItem').text(item);
 				   	location.reload();
 			   	}
+			   	
+			   	
+			   	$('#editItem').on('click',function(key)
+			   	{
+			   	    reservation[selected_index] = JSON.stringify(
+			   	    {
+				   	    item.lastName         =["Last Name:", $("#lastName").val()];
+		                item.phoneNumber      =["Phone Number:", $("#phoneNumber").val()];
+		                item.restaurant       =["Restaurant:", $("#restaurant").val()];    
+		                item.numberOfPeople   =["Number Of People:", $("#numberOfPeople").val()];  
+
+			        });//Alter the selected item on the table
+			        
+					    localStorage.setItem(id, JSON.stringify(item)); 
+					    alert("The data was edited.")
+					    operation = "A"; //Return to default value
+					    return true;
+			    });
+
+
+
 			 
-		});
+		}); //End of dataPage
 		
 		
 		
