@@ -46,7 +46,16 @@
                   
                 localStorage.setItem(id, JSON.stringify(item)); 
                 alert("Reservation Saved!");
-		   	});
+                
+           	});
+           	
+           	$('#deleteData').on('click', function(key)
+           	{
+           		$.each(reservation, function(key)
+	           	reservation.splice(0, 20);
+	           	localStorage.setItem("reservation", JSON.stringify(reservation));
+	           	alert("All reservations deleted!");
+           	});
 		   
 		   
 		});
