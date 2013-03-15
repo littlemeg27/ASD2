@@ -69,15 +69,13 @@
 			 var item = localStorage.getItem(key);
 			   
 			   	if(localStorage.length === 0) 
-			   	
-			   	{	item = "No reservations saved";	//Same with this
+			   	{	
 			   		alert("No reservations saved!");
 				   	//Going to put a call to the json here, jenn said this would be able to work for assignment?
 			   	}
 			   			
 			   	else
 			   	{	
-				   	item = "There are reservations saved"; //What does this do? It was in the example but i still dont understand
 				   	alert("There are reservations saved!");
 				   	$('.storeItem').text(item);
 				   	location.reload();
