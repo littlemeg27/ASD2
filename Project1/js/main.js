@@ -52,8 +52,8 @@
                
                $('#deleteData').on('click', function(item,key,reservation)
                {
-               		var id;
-               		
+                       var id;
+                       
                    $.each(reservation, function(key)
                    {
                        reservation.splice(0, 20);
@@ -85,23 +85,20 @@
                    }
                    
                    
-             /*     $('#editItem').on('click',function(item, key)
+                  $('#editItem').on('click',function(item, key, reservation)
                    {
-                       reservation[selected_index] = JSON.stringify(
+                       reservation[key] = JSON.stringify(
                        {
-                       var item                  = {};
-                           item.lastName         =["Last Name:", $("#lastName").val()];
-                        item.phoneNumber      =["Phone Number:", $("#phoneNumber").val()];
-                        item.restaurant       =["Restaurant:", $("#restaurant").val()];    
-                        item.numberOfPeople   =["Number Of People:", $("#numberOfPeople").val()];  
-
-                    });//Alter the selected item on the table
+                        "Last Name": $("#lastName").val(),
+                        "Phone Number": $("#phoneNumber").val(),
+                        "Restaurant": $("#restaurant").val(),   
+                        "Number Of People": $("#numberOfPeople").val()
+                       });//Alter the selected item on the table
                     
-                        localStorage.setItem(id, JSON.stringify(item)); 
-                        alert("The data was edited.")
-                        operation = "A"; //Return to default value
+                        localStorage.setItem(reservation, JSON.stringify(item)); 
+                        alert("The data was edited.");
                         return true;
-                });*/
+                   });
 
 
 
