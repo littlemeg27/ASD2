@@ -23,34 +23,34 @@
             };
             
             var myForm = $('#waitForm');
-				var errorFormLink = $('#errorFormLink');
-				
-			
-			myForm.validate(
-			{
-				    
-					invalidHandler: function(form, validator) 
-					{
-						errorFormLink.click();
-						var html = '';
-						
-						for(var key in validator.submitted)
-						{
-							var label = $('[for^="'+ key +'"]');
-							var legend = label.closest('fieldset').find('.ui-controlgroup-label');
-							var fieldName = legend.length ? legend.text() : label.text();
-							html += '<li>'+fieldName+'</li>';
-						}
-						
-						$("#errorFormPage ul").html(html);
-					},
-					
-					submitHandler: function() 
-					{
-						var data = myForm.serializeArray();
-						storeData(data);
-					}
-			});
+                var errorFormLink = $('#errorFormLink');
+                
+            
+            myForm.validate(
+            {
+                    
+                    invalidHandler: function(form, validator) 
+                    {
+                        errorFormLink.click();
+                        var html = '';
+                        
+                        for(var key in validator.submitted)
+                        {
+                            var label = $('[for^="'+ key +'"]');
+                            var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+                            var fieldName = legend.length ? legend.text() : label.text();
+                            html += '<li>'+fieldName+'</li>';
+                        }
+                        
+                        $("#errorFormPage ul").html(html);
+                    },
+                    
+                    submitHandler: function(storeData) 
+                    {
+                        var data = myForm.serializeArray();
+                        storeData(data);
+                    }
+            });
 
         
             $('#saveData').on('click', function(item)
@@ -120,10 +120,11 @@
                    {
                        reservation[key] = JSON.stringify(
                        {
-                        $('#lastName').val(item.lastName[1]);
-                        $('#phoneNumber').val(item.phoneNumber[1]);
-                        $('#restaurant').val(item.restaurant[1]);
-                        $('#numberOfPeople').val(item.numberOfPeople[1]);
+                        
+                        lastName : $("#lastName").val(),
+                        phoneNumber : $("#phoneNumber").val(),
+                        restaurant : $("#restaurant").val(),
+                        numberOfPeople : $("#numberOfPeople").val()
                        });//Alter the selected item on the table
                     
                         localStorage.setItem(reservation, JSON.stringify(item)); 
@@ -136,14 +137,14 @@
                    {
                        var id;
                        
-	                   $.each(reservation, function(key)
-	                   {
-	                       reservation.splice(key);
-	                       localStorage.setItem(id, JSON.stringify(item)); 
-	                       alert("Reservation deleted!");
-	                   });
+                       $.each(reservation, function(key)
+                       {
+                           reservation.splice(key);
+                           localStorage.setItem(id, JSON.stringify(item)); 
+                           alert("Reservation deleted!");
+                       });
                    
-	               });
+                   });
 
 
              
@@ -175,9 +176,9 @@
                                                
                                                 
                                                 $('' +  
-                                                       	'<li>' +
-                                                        	'<h3>' + item.lastName[1] + '<br>' + '</h3>'+ 
-                                                        	'<p>' + item.phoneNumber[1] + '</p>'+
+                                                           '<li>' +
+                                                            '<h3>' + item.lastName[1] + '<br>' + '</h3>'+ 
+                                                            '<p>' + item.phoneNumber[1] + '</p>'+
                                                         '</li>' 
                                                  ).appendTo("#dataPage");
                                             }
@@ -187,4 +188,4 @@
                        
                        });
             
-                });
+                });//Says there is a problem right here, with expecting ) but not missing any have double and triple checked.
