@@ -105,7 +105,7 @@
                    {    
                        alert("No reservations saved!");
                        //Going to put a call to the json here, jenn said this would be able to work for assignment?
-                       function callJSON(); 
+                     //  function callJSON(); 
                    }
                            
                    else
@@ -188,7 +188,3 @@
                        });
             
                 });
-
-        
-        
-        
