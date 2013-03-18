@@ -48,14 +48,13 @@
                     submitHandler: function(storeData) 
                     {
                         var data = myForm.serializeArray();
-                        storeData(data);
+                        storeData(item, key);
                     }
             });
 
         
-            $('#saveData').on('click', function(item)
+            var storeData = function(item, key)
             {
-                var key;
                 var id;
                 
                 if(!key)
@@ -78,7 +77,7 @@
                 localStorage.setItem(id, JSON.stringify(item)); 
                 alert("Reservation Saved!");
                 
-               });
+               };
                
                $('#deleteData').on('click', function(item,key,reservation)
                {
@@ -93,7 +92,7 @@
                    
                });
            
-           
+               $.mobile.changePage("#dataPage");
         });
         
         $('#dataPage').on('pageinit', function(item, key)//Since once i init into the page this should run, should i change it? 
@@ -139,7 +138,7 @@
                        
                        $.each(reservation, function(key)
                        {
-                           reservation.splice(key);
+                           reservation.splice(key, 0);
                            localStorage.setItem(id, JSON.stringify(item)); 
                            alert("Reservation deleted!");
                        });
