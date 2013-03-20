@@ -23,7 +23,7 @@
             };
             
             var myForm = $('#waitForm');
-                var errorFormLink = $('#errorFormLink');
+            var errorFormLink = $('#errorFormLink');
                 
             
             myForm.validate(
