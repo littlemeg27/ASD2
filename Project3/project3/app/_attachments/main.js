@@ -111,7 +111,6 @@
                    {    
                        alert("There are reservations saved!");
                        $('.storeItem').text(item);
-                       location.reload();
                    }
                    
                    
