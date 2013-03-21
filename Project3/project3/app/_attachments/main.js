@@ -4,6 +4,39 @@
 
         $('#home').on('pageinit', function()
         {
+	        		var callJSON = function()
+	                {
+	                console.log($("#loadJSON"));
+	                
+	                        $('#dataPage').empty();
+	                        $.ajax(
+	                        {    
+	                                url: "_view/reservation", //What i am getting
+	                                type: "GET", //I am getting not posting 
+	                                dataType : "json", //Getting JSON data, located in data.json   
+	                                success:function(result) //Going to use dataCall for the name to call my data
+	                                {
+	                                    $.each(data.rows, function(index, reservation)
+	                                    {
+		                                    var lastName 		= reservation.value.lastName;
+		                                    var phoneNumber	    = reservation.value.phoneNumber;
+		                                    var restaurant  	= reservation.value.restaurant;
+		                                    var numberOfPeople  = reservation.value.numberOfPeople;
+		                                    
+		                                    $("reservationList").append(
+		                                    $('<li>').append(
+		                                    $('<a>').attr("href", "#").text(restaurant)
+		                                    )
+	                                    });                              
+	                                }
+	                       
+	                       });
+	                       $('#reservationList').listview('refresh');
+	            
+	                };
+	            
+	              
+
             
         });
         
