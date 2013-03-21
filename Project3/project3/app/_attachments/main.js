@@ -45,10 +45,10 @@
                         $("#errorFormPage ul").html(html);
                     },
                     
-                    submitHandler: function(storeData) 
+                    submitHandler: function() 
                     {
                         var data = myForm.serializeArray();
-                        storeData(item, key);
+                        storeData(data);
                     }
             });
 
@@ -148,10 +148,6 @@
 
              
         }); //End of dataPage
-        
-        //With this im working off a lot of stuff that i found online, im not sure if im pushing though the right variables etc. 
-        //It is jquery but i wish i understood it a bit better so that i could make sure it works.
-       
            
                var callJSON = function()
                 {
@@ -188,3 +184,9 @@
                        });
             
                 };
+
+
+
+
+
+
