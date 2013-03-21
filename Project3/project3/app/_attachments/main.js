@@ -92,7 +92,7 @@
                    
                });
            
-               $.mobile.changePage("#dataPage");
+               
         });
         
         $('#dataPage').on('pageinit', function(item, key)//Since once i init into the page this should run, should i change it? 
