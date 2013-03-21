@@ -2,7 +2,7 @@
 //CRUD Project
 //ASD 1303
 
-        $('#home').on('pageinit', function()
+        $('#home').on('pageinit', function(data)
         {
 	        		var callJSON = function()
 	                {
