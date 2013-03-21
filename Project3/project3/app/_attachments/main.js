@@ -77,6 +77,7 @@
                 localStorage.setItem(id, JSON.stringify(item)); 
                 alert("Reservation Saved!");
                 
+                $.mobile.changePage("#dataPage");
                };
                
                $('#deleteData').on('click', function(item,key,reservation)
@@ -104,7 +105,7 @@
                    {    
                        alert("No reservations saved!");
                        //Going to put a call to the json here, jenn said this would be able to work for assignment?
-                     //  function callJSON(); //Cant figure out the right call for this.
+                       //function callJSON(); //Cant figure out the right call for this.
                    }
                            
                    else
@@ -141,6 +142,8 @@
                            localStorage.setItem(id, JSON.stringify(item)); 
                            alert("Reservation deleted!");
                        });
+                       
+                       $.mobile.changePage("#dataPage");
                    
                    });
 
