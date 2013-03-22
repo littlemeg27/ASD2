@@ -2,10 +2,38 @@
 //CRUD Project
 //ASD 1303
 
-        $('#home').on('pageinit', function()
+        $('#home').on('pageinit', function(data)
         {
-            
+                  
+                            $.ajax(
+                            {    
+                                    url: "_view/reservation", //What i am getting 
+                                    dataType : "json", //Getting JSON data, located in data.json   
+                                    success:function(data) //Going to use dataCall for the name to call my data
+                                    {
+                                        $.each(data.rows, function(index, reservation)
+                                        {
+                                            var lastName         = reservation.value.lastName;
+                                            var phoneNumber      = reservation.value.phoneNumber;
+                                            var restaurant       = reservation.value.restaurant;
+                                            var numberOfPeople   = reservation.value.numberOfPeople;
+                                            
+                                            $("#reservationList").append(
+                                            $('<li>').text(restaurant)
+                                            );
+                                                                                                      
+                                        
+                           
+                                        });
+                                        //$('#reservationList').listview('refresh');
+                
+                                       }                
+                            });
+
+                        
         });
+       
+       
         
         $('#addItem').on('pageinit', function()
         {
@@ -14,7 +42,8 @@
             var getItem = function(item, key)
             {
                 var reservation;
-                reservation = JSON.parse(item);        
+                reservation = JSON.parse(item); 
+                alert("im inside getData");    
                 
                 $.each(reservation, function(key)
                 {
@@ -23,7 +52,7 @@
             };
             
             var myForm = $('#waitForm');
-                var errorFormLink = $('#errorFormLink');
+            var errorFormLink = $('#errorFormLink');
                 
             
             myForm.validate(
@@ -45,10 +74,10 @@
                         $("#errorFormPage ul").html(html);
                     },
                     
-                    submitHandler: function(storeData) 
+                    submitHandler: function() 
                     {
                         var data = myForm.serializeArray();
-                        storeData(item, key);
+                        storeData(data);
                     }
             });
 
@@ -77,6 +106,7 @@
                 localStorage.setItem(id, JSON.stringify(item)); 
                 alert("Reservation Saved!");
                 
+                $.mobile.changePage("#dataPage");
                };
                
                $('#deleteData').on('click', function(item,key,reservation)
@@ -92,19 +122,19 @@
                    
                });
            
-               $.mobile.changePage("#dataPage");
+               
         });
         
-        $('#dataPage').on('pageinit', function(item, key)//Since once i init into the page this should run, should i change it? 
-                                                        //Should i make it have a changepage and then change to this page?
+        
+        
+        $('#dataPage').on('pageinit', function(item, key)
         {
               item = localStorage.getItem(key);
                
                    if(localStorage.length === 0) 
                    {    
                        alert("No reservations saved!");
-                       //Going to put a call to the json here, jenn said this would be able to work for assignment?
-                     //  function callJSON(); //Cant figure out the right call for this.
+                       
                    }
                            
                    else
@@ -141,16 +171,14 @@
                            localStorage.setItem(id, JSON.stringify(item)); 
                            alert("Reservation deleted!");
                        });
+                       
+                       $.mobile.changePage("#dataPage");
                    
                    });
 
 
              
         }); //End of dataPage
-        
-        //With this im working off a lot of stuff that i found online, im not sure if im pushing though the right variables etc. 
-        //It is jquery but i wish i understood it a bit better so that i could make sure it works.
-       
            
                var callJSON = function()
                 {
@@ -159,7 +187,7 @@
                         $('#dataPage').empty();
                         $.ajax(
                         {    
-                                url: "xhr/data.json", //What i am getting
+                                url: "data.json", //What i am getting
                                 type: "GET", //I am getting not posting 
                                 dataType : "json", //Getting JSON data, located in data.json   
                                 success:function(result) //Going to use dataCall for the name to call my data
@@ -187,3 +215,14 @@
                        });
             
                 };
+
+
+
+
+
+
+
+
+
+
+
