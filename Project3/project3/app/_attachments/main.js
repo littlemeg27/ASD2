@@ -9,7 +9,7 @@
                             {    
                                     url: "_view/reservation", //What i am getting 
                                     dataType : "json", //Getting JSON data, located in data.json   
-                                    success:function(result) //Going to use dataCall for the name to call my data
+                                    success:function(data) //Going to use dataCall for the name to call my data
                                     {
                                         $.each(data.rows, function(index, reservation)
                                         {
@@ -29,10 +29,9 @@
                 
                                        }                
                             });
-                                      
-                        });
+
                         
-});
+        });
        
        
         
