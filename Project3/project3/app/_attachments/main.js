@@ -9,7 +9,7 @@
                                     "url": "_view/reservation", //What i am getting 
                                     "dataType": "json", //Getting JSON data, located in data.json   
                                     "success": function(data) //Going to use dataCall for the name to call my data
-                                     {    
+                                     {  
                                         $.each(data.rows, function(index, value)
                                         {
                                             console.log(value);
@@ -19,7 +19,8 @@
                                             var restaurant       = value.value.restaurant;
                                             
                                             $('#reservationList').append(
-                                            $('<li>').text(lastName)
+                                            		($("<ul>"+ '<p>' + lastName[0] + " " + lastName[1] + '</p>' +</ul>" ))
+
                                             
                                            );
                                                                                                       
