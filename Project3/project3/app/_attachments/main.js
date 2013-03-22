@@ -19,10 +19,10 @@
                                             var restaurant       = value.value.restaurant;
                                             
                                             $('#reservationList').append(
-                                            		($("<ul>"+ '<p>' + lastName[0] + " " + lastName[1] + '</p>' +</ul>" ))
+                                                    ($("<ul>" + '<p>' + lastName[0] + " " + lastName[1] + '</p>' + "</ul>" )));
 
                                             
-                                           );
+                                          
                                                                                                       
                                         });
                                         //$('#reservationList').listview('refresh');
@@ -31,6 +31,12 @@
                             });
                             
                 });
+
+
+
+
+
+
 
 
 
