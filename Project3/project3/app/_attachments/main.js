@@ -20,19 +20,19 @@
                                             
                                             $("#reservationList").append(
                                             $('<li>').text(restaurant)
-                                            )
-                                            							                              
+                                            );
+                                                                                                      
                                         
                            
                                         });
                                         //$('#reservationList').listview('refresh');
                 
-                           			}				
-                    		});
-                  					
-              		  };
+                                       }                
+                            });
+                                      
+                        });
                         
-        });
+});
        
        
         
@@ -217,6 +217,12 @@
                        });
             
                 };
+
+
+
+
+
+
 
 
 
