@@ -134,8 +134,7 @@
                    if(localStorage.length === 0) 
                    {    
                        alert("No reservations saved!");
-                       //Going to put a call to the json here, jenn said this would be able to work for assignment?
-                       //function callJSON(); //Cant figure out the right call for this.
+                       
                    }
                            
                    else
