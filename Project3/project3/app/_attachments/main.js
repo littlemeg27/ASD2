@@ -19,7 +19,7 @@
                                             var restaurant       = value.value.restaurant;
                                             
                                             $('#reservationList').append(
-                                                    ($("<ul>" + '<p>' + lastName[0] + " " + lastName[1] + '</p>' + "</ul>" )));
+                                            $("<ul>" + '<p>' + value.lastName[0] + " " + value.lastName[1] + '</p>' + "</ul>"));
 
                                             
                                           
