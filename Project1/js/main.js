@@ -104,21 +104,21 @@
                 item.numberOfPeople   =["Number Of People:", $("#numberOfPeople").val()];  
                   
                 localStorage.setItem(id, JSON.stringify(item)); 
-                alert("Reservation Saved!");
+                alert("Reservation Saved!"); 
+                };
                 
-                $.mobile.changePage("#dataPage");
-               };
+                
                
                $('#deleteData').on('click', function(item,key,reservation)
-               {
-                       var id;
-                       
-                   $.each(reservation, function(key)
-                   {
-                       reservation.splice(0, 20);
-                       localStorage.setItem(id, JSON.stringify(item)); 
-                       alert("All reservations deleted!");
-                   });
+               {	console.log(item);
+	                   var id;
+	                       
+	                   $.each(reservation, function(key)
+	                   {
+	                       reservation.splice(0, 20);
+	                       localStorage.setItem(id, JSON.stringify(item)); 
+	                       alert("All reservations deleted!");
+	                   });
                    
                });
            
@@ -135,12 +135,48 @@
                    {    
                        alert("No reservations saved!");
                        
+                        var callJSON = function()
+		                {
+		                console.log($("#loadJSON"));
+		                
+		                        $('#dataPage').empty();
+		                        $.ajax(
+		                        {    
+		                                url: "data.json", //What i am getting
+		                                type: "GET", //I am getting not posting 
+		                                dataType : "json", //Getting JSON data, located in data.json   
+		                                success:function(result) //Going to use dataCall for the name to call my data
+		                                {
+		                                        console.log("This is my JSON Data", result); 
+		                                       
+		                                            for(var i=0, len=result.reservation.length; i<len; i++)//for loop to read the whole json
+		                                            {
+		                                                var item = result.reservation[i];
+		                                               
+		                                                $('' +  
+		                                                           '<li>' +
+		                                                            '<h3>' + item.lastName[1] + '<br>' + '</h3>'+ 
+		                                                            '<p>' + item.phoneNumber[1] + '</p>'+
+		                                                        '</li>' 
+		                                                 ).appendTo("#dataPage");
+		                                            }
+		                                            $('#dataPage').listview();
+		                                
+		                                }
+		                       
+		                       });
+		            
+		                };
+
+                       
                    }
                            
                    else
                    {    
                        alert("There are reservations saved!");
+                       $('#reservationList').append(
                        $('.storeItem').text(item);
+                       );
                    }
                    
                    
@@ -161,7 +197,7 @@
                    });
 
 
-                   $('#deleteData').on('click', function(item,key,reservation)
+                   $('#deleteItem').on('click', function(item,key,reservation)
                    {
                        var id;
                        
@@ -180,49 +216,7 @@
              
         }); //End of dataPage
            
-               var callJSON = function()
-                {
-                console.log($("#loadJSON"));
-                
-                        $('#dataPage').empty();
-                        $.ajax(
-                        {    
-                                url: "data.json", //What i am getting
-                                type: "GET", //I am getting not posting 
-                                dataType : "json", //Getting JSON data, located in data.json   
-                                success:function(result) //Going to use dataCall for the name to call my data
-                                {
-                                    
-                                        console.log("This is my JSON Data", result); 
-                                       
-                                            
-                                            for(var i=0, len=result.reservation.length; i<len; i++)//for loop to read the whole json
-                                            {
-                                                var item = result.reservation[i];
-                                               
-                                                
-                                                $('' +  
-                                                           '<li>' +
-                                                            '<h3>' + item.lastName[1] + '<br>' + '</h3>'+ 
-                                                            '<p>' + item.phoneNumber[1] + '</p>'+
-                                                        '</li>' 
-                                                 ).appendTo("#dataPage");
-                                            }
-                                            $('#dataPage').listview();
-                                
-                                }
-                       
-                       });
-            
-                };
-
-
-
-
-
-
-
-
+              
 
 
 

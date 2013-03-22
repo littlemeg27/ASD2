@@ -16,19 +16,16 @@
                                             var numberOfPeople   = reservation.value.numberOfPeople;
                                             var phoneNumber      = reservation.value.phoneNumber;
                                             var restaurant       = reservation.value.restaurant;
-                                            console.log(lastName);
-                                            console.log(numberOfPeople);
-                                            console.log(phoneNumber);
-                                            console.log(restaurant);
                                             
                                             $('#reservationList').append(
-                                            $("<ul>" + '<p>' + lastName[0] + " " + lastName[1] + '</p>' + "</ul>"));
-
-                                            
-                                          
-                                                                                                      
+                                            $('<li>').append(
+                                            $('<a>').attr("href", "#")
+                                            		.text(lastName)
+                                            				)
+                                            							);
+                                                    
                                         });
-                                        //$('#reservationList').listview('refresh');
+                                        $('#reservationList').listview('refresh');
                 
                                     }               
                             });

@@ -4,10 +4,10 @@ function (doc)
 		{
 			emit(doc._id.substr(12),
 			{
-			"Last Name": doc.lastName,
-			"Phone Number": doc.phoneNumber,
-			"Restaurant": doc.restaurant,
-			"Number Of people": doc.numberOfPeople
+			"lastName": doc.lastName,
+			"phoneNumber": doc.phoneNumber,
+			"restaurant": doc.restaurant,
+			"numberOfPeople": doc.numberOfPeople
 			});
 		}
 };
