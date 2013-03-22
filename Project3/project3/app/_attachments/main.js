@@ -4,41 +4,37 @@
 
         $('#home').on('pageinit', function(data)
         {
-	        		var callJSON = function()
-	                {
-	                console.log($("#loadJSON"));
-	                
-	                        $('#dataPage').empty();
-	                        $.ajax(
-	                        {    
-	                                url: "_view/reservation", //What i am getting
-	                                type: "GET", //I am getting not posting 
-	                                dataType : "json", //Getting JSON data, located in data.json   
-	                                success:function(result) //Going to use dataCall for the name to call my data
-	                                {
-	                                    $.each(data.rows, function(index, reservation)
-	                                    {
-		                                    var lastName 		= reservation.value.lastName;
-		                                    var phoneNumber	    = reservation.value.phoneNumber;
-		                                    var restaurant  	= reservation.value.restaurant;
-		                                    var numberOfPeople  = reservation.value.numberOfPeople;
-		                                    
-		                                    $("reservationList").append(
-		                                    $('<li>').append(
-		                                    $('<a>').attr("href", "#").text(restaurant)
-		                                    )
-	                                    });                              
-	                                }
-	                       
-	                       });
-	                       $('#reservationList').listview('refresh');
-	            
-	                };
-	            
-	              
-
-            
+                  
+                            $.ajax(
+                            {    
+                                    url: "_view/reservation", //What i am getting 
+                                    dataType : "json", //Getting JSON data, located in data.json   
+                                    success:function(result) //Going to use dataCall for the name to call my data
+                                    {
+                                        $.each(data.rows, function(index, reservation)
+                                        {
+                                            var lastName         = reservation.value.lastName;
+                                            var phoneNumber      = reservation.value.phoneNumber;
+                                            var restaurant       = reservation.value.restaurant;
+                                            var numberOfPeople   = reservation.value.numberOfPeople;
+                                            
+                                            $("#reservationList").append(
+                                            $('<li>').text(restaurant)
+                                            )
+                                            							                              
+                                        
+                           
+                                        });
+                                        //$('#reservationList').listview('refresh');
+                
+                           			}				
+                    		});
+                  					
+              		  };
+                        
         });
+       
+       
         
         $('#addItem').on('pageinit', function()
         {
@@ -47,7 +43,8 @@
             var getItem = function(item, key)
             {
                 var reservation;
-                reservation = JSON.parse(item);        
+                reservation = JSON.parse(item); 
+                alert("im inside getData");    
                 
                 $.each(reservation, function(key)
                 {
@@ -129,8 +126,9 @@
                
         });
         
-        $('#dataPage').on('pageinit', function(item, key)//Since once i init into the page this should run, should i change it? 
-                                                        //Should i make it have a changepage and then change to this page?
+        
+        
+        $('#dataPage').on('pageinit', function(item, key)
         {
               item = localStorage.getItem(key);
                
@@ -191,7 +189,7 @@
                         $('#dataPage').empty();
                         $.ajax(
                         {    
-                                url: "xhr/data.json", //What i am getting
+                                url: "data.json", //What i am getting
                                 type: "GET", //I am getting not posting 
                                 dataType : "json", //Getting JSON data, located in data.json   
                                 success:function(result) //Going to use dataCall for the name to call my data
@@ -219,7 +217,6 @@
                        });
             
                 };
-
 
 
 

@@ -50,6 +50,8 @@
 						</li>
 					</ul>
 					
+					<ul id="reservationList" data-role="listview">
+					</ul>					
 					</section>
 				
 				</div>
@@ -115,12 +117,13 @@
 						<div data-role="fieldcontain"><!--form buttons open-->
 							
 							<button id="saveData">Make Reservation</button>
-							<a href="dataPage" data-role="button">Display Reservation</a> <!--Goes from form to dataPage-->
+							
 							<button id="deleteData">Delete all Reservations</button>
 							<input type="reset" id="reset" value="Reset"/>
-
-							
+								
 						</div><!--form buttons closed-->
+						
+						<a href="dataPage" data-role="button">Display Reservation</a> <!--Goes from form to dataPage-->
 						
 						<a href="#errorFormPage" id="errorFormLink" data-rel="dialog" data-transition="pop">Errors!</a>
 
@@ -158,8 +161,10 @@
 					</header>
 					
 					<section id="item">
-							<!--Do i need to put a li set here? Or anything like that so that it has a place to be?-->
-							<!--If so send links/examples?-->
+					
+						<ul id="item">
+						</ul>
+							
 					</section>
 				
 				</div>
