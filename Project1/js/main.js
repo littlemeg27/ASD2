@@ -56,11 +56,11 @@
             });
 
         
-            var storeData = function(item, key, id)
+            var storeData = function(item, key, id) //Im passing in and out the variables 
             {   
                 if(!key)
                 {
-                    var id = Math.floor(Math.random()*1000001); 
+                    var id = Math.floor(Math.random()*1000001); //This comes up with a real key/value
                 }
                 
                 else
@@ -75,16 +75,16 @@
                 item.restaurant       =["Restaurant:", $("#restaurant").val()];    
                 item.numberOfPeople   =["Number Of People:", $("#numberOfPeople").val()];  
                   
-                localStorage.setItem(id, JSON.stringify(item)); 
+                localStorage.setItem(id, JSON.stringify(item)); //Item is defined and coming up with a value
                 alert("Reservation Saved!"); 
                 };
                 
                  
                
-               $('#deleteData').on('click', function(item,key,id)
+               $('#deleteData').on('click', function(item,key,id) //They should be passing in the value/key etc but isnt.
                {         
-                console.log("im the thing inside of deleteData", key);
-	            console.log(id);
+                console.log("im the thing inside of deleteData", key); //This is coming up undefined
+	            console.log(id); //This is also coming up undefined 
                  
                            localStorage.removeItem(key);
                            localStorage.setItem(id, JSON.stringify(item)); 
