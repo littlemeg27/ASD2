@@ -124,8 +124,9 @@
                                });
                         };
                    };
+
                            
-                   else
+                   for(var i=0, len=result.reservation.length; i<len; i++)//for loop to read the whole json
                    {    
                           $("#reservationList").html("");
                           $("#reservationList").html(
