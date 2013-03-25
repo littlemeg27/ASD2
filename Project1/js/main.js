@@ -3,7 +3,6 @@
 //ASD 1303
 
         var operation = "add"; //Trying something new i found hope this works!
-                
         var key = -1; //Index
 
         $('#home').on('pageinit', function(data)
@@ -18,10 +17,6 @@
         {
             $(function()
             {
-                var operation = "add"; //Trying something new i found hope this works!
-                
-                var key = -1; //Index
-                
                 var reservation = localStorage.getItem("reservation");//Retrieve the stored data
                 
                 reservation = JSON.parse(reservation); //Converts string to object
@@ -135,8 +130,8 @@
                            
                    else
                    {    
-                          $("#tblList").html("");
-                          $("#tblList").html(
+                          $("#reservationList").html("");
+                          $("#reservationList").html(
                             
                             "<thead>" +
                             "<tr>" +
@@ -155,11 +150,11 @@
                             for(var i in reservation)
                             {
                                 var res = JSON.parse(reservation[i]);
-                                $("#tblList tbody").append(
+                                $("#reservationList tbody").append(
                                      
                                      "<tr>" +
                                      "<td><a src='edit.png' alt='Edit" + i + "class='btnEdit'/>
-                                         <a src='delete.png' alt='Delete'" + i + "class='btnDelete'/></td>" +
+                                          <a src='delete.png' alt='Delete'" + i + "class='btnDelete'/></td>" +
                                      "<td>" + res.lastName + "</td>" +
                                      "<td>" + res.phoneNumber + "</td>" +
                                      "<td>" + res.restaurant + "</td>" +
@@ -170,7 +165,7 @@
                     
                     }
                    
-                    $("#form").on("submit",function(){
+                    $("#form").on("submit",function(add, edit){
                         if(operation == "add")
                         { return add(); }
                         
@@ -183,7 +178,7 @@
                    {
                         operation = "edit";
                         
-                        key = parseInt($(this).attr("alt").replace("Edit", ""));
+                        key = parseInt($(this).attr("alt").replace("Edit", ""), 10);
                         
                         var res = JSON.parse(reservation[key]);
                         
@@ -198,13 +193,10 @@
 
                    $(".deleteItem").on('click', function()
                    {   
-                        key = parseInt($(this).attr("alt").replace("Delete", ""));
-                        Delete();
-                        List();
+                        key = parseInt($(this).attr("alt").replace("Delete", ""), 10);
+                        delete();
+                        list();
                    });
  
              
         }); //End of dataPage
-           
-              
-
