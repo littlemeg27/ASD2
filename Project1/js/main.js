@@ -151,11 +151,11 @@
                                      
                                      "<tr>" +
                                      "<td><a href="edit">" + i + "class='editItem'</a>
-                                         "<a href="delete"> " + i + "class='deleteItem'"</a></td>" +
-                                     "<td>" + res.lastName + "</td>" +
-                                     "<td>" + res.phoneNumber + "</td>" +
-                                     "<td>" + res.restaurant + "</td>" +
-                                     "<td>" + res.numberOfPeople + "</td>" +
+                                          "<a href="delete"> " + i + "class='deleteItem'"</a></td>" +
+                                     "<td>" + res.lastName[1] + "</td>" +
+                                     "<td>" + res.phoneNumber[1] + "</td>" +
+                                     "<td>" + res.restaurant[1] + "</td>" +
+                                     "<td>" + res.numberOfPeople[1] + "</td>" +
                                      "</tr>"
                                   );
                             }
