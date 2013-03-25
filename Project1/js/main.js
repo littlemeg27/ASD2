@@ -150,8 +150,8 @@
                                 $("#reservationList tbody").append(
                                      
                                      "<tr>" +
-                                     "<td><a href="edit" " + i + "class='btnEdit'/>
-                                          <a href="delete" " + i + "class='btnDelete'/></td>" +
+                                     "<td><a href="edit">" + i + "class='editItem'</a>
+                                         "<a href="delete"> " + i + "class='deleteItem'"</a></td>" +
                                      "<td>" + res.lastName + "</td>" +
                                      "<td>" + res.phoneNumber + "</td>" +
                                      "<td>" + res.restaurant + "</td>" +
