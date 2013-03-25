@@ -2,6 +2,10 @@
 //CRUD Project
 //ASD 1303
 
+        var operation = "add"; //Trying something new i found hope this works!
+                
+        var key = -1; //Index
+
         $('#home').on('pageinit', function(data)
         {
 
@@ -12,26 +16,25 @@
         
         $('#addItem').on('pageinit', function()
         {
-            var getItem = function(item, key)
+            $(function()
             {
-                var reservation;
-                reservation = JSON.parse(item); 
-                alert("im inside getData");    
+                var operation = "add"; //Trying something new i found hope this works!
                 
-                $.each(reservation, function(key)
-                {
-                	console.log(reservation);
-                    console.log(key, reservation[key]);
-                });
-            };
-            
+                var key = -1; //Index
+                
+                var reservation = localStorage.getItem("reservation");//Retrieve the stored data
+                
+                reservation = JSON.parse(reservation); //Converts string to object
+                
+                if(reservation === null) //If there is no data, initialize an empty array
+                { reservation = [];}
+            });
+                            
             var myForm = $('#waitForm');
             var errorFormLink = $('#errorFormLink');
-                
             
             myForm.validate(
             {
-                    
                     invalidHandler: function(form, validator) 
                     {
                         errorFormLink.click();
@@ -56,39 +59,29 @@
             });
 
         
-            var storeData = function(item, key, id) //Im passing in and out the variables 
+            var storeData = function(reservation)//Im passing in and out the variables 
             {   
-                if(!key)
+                var item = JSON.stringify(
                 {
-                    var id = Math.floor(Math.random()*1000001); //This comes up with a real key/value
-                }
-                
-                else
-                {
-                    id = key; 
-                }
-                
-                    
-                item                  = {};
-                item.lastName         =["Last Name:", $("#lastName").val()];
-                item.phoneNumber      =["Phone Number:", $("#phoneNumber").val()];
-                item.restaurant       =["Restaurant:", $("#restaurant").val()];    
-                item.numberOfPeople   =["Number Of People:", $("#numberOfPeople").val()];  
+                    lastName         : $("#lastName").val(),
+                    phoneNumber     : $("#phoneNumber").val(),
+                    restaurant        : $("#restaurant").val(),
+                    numberOfPeople  : $("#numberOfPeople").val() 
+                });
                   
-                localStorage.setItem(id, JSON.stringify(item)); //Item is defined and coming up with a value
-                alert("Reservation Saved!"); 
-                };
+                reservation.push(item);
+                localStorage.setItem("reservation", JSON.stringify(reservation));
+                alert("The reservation was saved!");
+                return true;
+            };
                 
                  
                
-               $('#deleteData').on('click', function(item,key,id) //They should be passing in the value/key etc but isnt.
+               $('#deleteData').on('click', function(key, reservation) 
                {         
-                console.log("im the thing inside of deleteData", key); //This is coming up undefined
-	            console.log(id); //This is also coming up undefined 
-                 
-                           localStorage.removeItem(key);
-                           localStorage.setItem(id, JSON.stringify(item)); 
-                           alert("All reservations deleted!");
+                   reservation.splice(key, 1);
+                   localStorage.setItem("reservation", JSON.stringify(reservation));
+                   alert("Reservation was deleted");
                });
            
                
@@ -96,7 +89,7 @@
         
         
         
-        $('#dataPage').on('pageinit', function(item, key)
+        $('#dataPage').on('pageinit', function(reservation, item)
         {
               item = localStorage.getItem(key);
                
@@ -142,49 +135,76 @@
                            
                    else
                    {    
-                       alert("There are reservations saved!");
-                       $('#item').append(
-                       $('.storeItem').text(item)
-                       );
-                   }
-                   
-                   
-                  $('#editItem').on('click',function(item, key, reservation)
-                   {
-                       reservation[key] = JSON.stringify(
-                       {
-                        
-                        lastName : $("#lastName").val(),
-                        phoneNumber : $("#phoneNumber").val(),
-                        restaurant : $("#restaurant").val(),
-                        numberOfPeople : $("#numberOfPeople").val()
-                       });//Alter the selected item on the table
+                          $("#tblList").html("");
+                          $("#tblList").html(
+                            
+                            "<thead>" +
+                            "<tr>" +
+                            "<th></th>" +
+                            "<th>Last Name</th>" + 
+                            "<th>Phone Number</th>" +
+                            "<th>Restaurant</th>" +
+                            "<th>Number Of People</th>" +
+                            "</tr>" +
+                            "</thead>" +
+                            "<tbody>" +
+                            "</tbody>"
+                            
+                            );
+                            
+                            for(var i in reservation)
+                            {
+                                var res = JSON.parse(reservation[i]);
+                                $("#tblList tbody").append(
+                                     
+                                     "<tr>" +
+                                     "<td><a src='edit.png' alt='Edit" + i + "class='btnEdit'/>
+                                         <a src='delete.png' alt='Delete'" + i + "class='btnDelete'/></td>" +
+                                     "<td>" + res.lastName + "</td>" +
+                                     "<td>" + res.phoneNumber + "</td>" +
+                                     "<td>" + res.restaurant + "</td>" +
+                                     "<td>" + res.numberOfPeople + "</td>" +
+                                     "</tr>"
+                                  );
+                            }
                     
-                        localStorage.setItem(reservation, JSON.stringify(item)); 
-                        alert("The reservation was edited!");
-                        return true;
-                   });
-
-
-                   $('#deleteItem').on('click', function(item,key,reservation)
-                   {
-                       var id;
-                       
-                       $.each(reservation, function(key)
-                       {
-                           reservation.splice(key, 0);
-                           localStorage.setItem(id, JSON.stringify(item)); 
-                           alert("Reservation deleted!");
-                       });
-                       
-                       $.mobile.changePage("#dataPage");
+                    }
                    
+                    $("#form").on("submit",function(){
+                        if(operation == "add")
+                        { return add(); }
+                        
+                        else
+                        { return edit(); }    
+                    });
+                   
+                   
+                  $(".editItem").on('click',function()
+                   {
+                        operation = "edit";
+                        
+                        key = parseInt($(this).attr("alt").replace("Edit", ""));
+                        
+                        var res = JSON.parse(reservation[key]);
+                        
+                        $("#txtLastName").val(res.lastName);
+                        $("#txtPhoneNumber").val(res.phoneNumber);
+                        $("#txtRestaurant").val(res.restaurant);
+                        $("#txtNumberOfPeople").val(res.numberOfPeople);
+                        $("#txtLastName").attr("readonly","readonly");
+                        $("#txtPhoneNumber").focus();
                    });
 
 
+                   $(".deleteItem").on('click', function()
+                   {   
+                        key = parseInt($(this).attr("alt").replace("Delete", ""));
+                        Delete();
+                        List();
+                   });
+ 
              
         }); //End of dataPage
            
               
-
 
