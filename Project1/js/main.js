@@ -54,7 +54,7 @@
             });
 
         
-            var storeData = function(reservation)//Im passing in and out the variables 
+            var storeData = function(reservation)
             {   
                 var item = JSON.stringify(
                 {
@@ -86,7 +86,9 @@
         
         $('#dataPage').on('pageinit', function(reservation, item)
         {
-              item = localStorage.getItem(key);
+        
+            var displayData = function(reservation,item)
+            {
                
                    if(localStorage.length === 0) 
                    {    
@@ -118,14 +120,9 @@
                                                          ).appendTo("#dataPage");
                                                     }
                                                     $('#dataPage').listview();
-                                        
                                         }
-                               
                                });
-                    
                         };
-
-                       
                    }
                            
                    else
@@ -153,8 +150,8 @@
                                 $("#reservationList tbody").append(
                                      
                                      "<tr>" +
-                                     "<td><a src='edit.png' alt='Edit" + i + "class='btnEdit'/>
-                                          <a src='delete.png' alt='Delete'" + i + "class='btnDelete'/></td>" +
+                                     "<td><a href="edit" " + i + "class='btnEdit'/>
+                                          <a href="delete" " + i + "class='btnDelete'/></td>" +
                                      "<td>" + res.lastName + "</td>" +
                                      "<td>" + res.phoneNumber + "</td>" +
                                      "<td>" + res.restaurant + "</td>" +
@@ -164,6 +161,7 @@
                             }
                     
                     }
+           };
                    
                     $("#form").on("submit",function(add, edit){
                         if(operation == "add")
@@ -194,8 +192,8 @@
                    $(".deleteItem").on('click', function()
                    {   
                         key = parseInt($(this).attr("alt").replace("Delete", ""), 10);
-                        delete();
-                        list();
+                        deleteData();
+                        displayData();
                    });
  
              
