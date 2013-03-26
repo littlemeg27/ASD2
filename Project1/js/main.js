@@ -94,21 +94,21 @@
                    {    
                        alert("No reservations saved!");
                        
-                        var callJSON = function()
-                        {
-                        console.log($("#loadJSON"));
-                        
-                                $('#dataPage').empty();
                                 $.ajax(
                                 {    
                                         url: "data.json", //What i am getting
                                         type: "GET", //I am getting not posting 
                                         dataType : "json", //Getting JSON data, located in data.json   
-                                        success:function(result) //Going to use dataCall for the name to call my data
+                                        success:function(result); //Going to use dataCall for the name to call my data
                                         {
                                                 console.log("This is my JSON Data", result); 
+                                                for(var i in result)
+                                                {
+                                                      id = Math.floor(Math.random()*100000001);
+                                                      localStorage.setItem(id, JSON.stringify(result[i]));
+                                                }
                                                
-                                                    for(var i=0, len=result.reservation.length; i<len; i++)//for loop to read the whole json
+                                                   /* for(var i=0, len=result.reservation.length; i<len; i++)//for loop to read the whole json
                                                     {
                                                         var item = result.reservation[i];
                                                        
@@ -119,16 +119,16 @@
                                                                 '</li>' 
                                                          ).appendTo("#dataPage");
                                                     }
-                                                    $('#dataPage').listview();
+                                                    $('#dataPage').listview();*/
                                         }
                                });
                         };
                    };
 
                            
-                   for(var i=0, len=result.reservation.length; i<len; i++)//for loop to read the whole json
+                   for(var i=0, len=localStorage.length; i<len; i++)
                    {    
-                          $("#reservationList").html("");
+                          $('#dataPage').empty();
                           $("#reservationList").html(
                             
                             "<thead>" +
@@ -151,10 +151,7 @@
                                 $("#reservationList tbody").append(
                                      
                                      "<tr>" +
-                                     "<td><a href='edit'>" + i + "class='editItem'</a>
-                                          "<a href='delete'> " + i + "class='deleteItem'"</a></td>" +
-                                     "<td>" + res.lastName[1] + "</td>" +
-                                     "<td>" + res.phoneNumber[1] + "</td>" +
+                                     "<td><a href='#' key='" + res.id + "' class='editItem'></a>" + "<a href='#' key='" + res.id + "' class='deleteItem'></a></td>" + "<td>" + res.lastName[1] + "</td>" + "<td>" + res.phoneNumber[1] + "</td>" +
                                      "<td>" + res.restaurant[1] + "</td>" +
                                      "<td>" + res.numberOfPeople[1] + "</td>" +
                                      "</tr>"
