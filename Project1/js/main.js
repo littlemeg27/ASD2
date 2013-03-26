@@ -72,9 +72,9 @@
                 
                  
                
-               $('#deleteData').on('click', function(key, reservation) 
+              var deleteData = $('#deleteData').on('click', function(key, reservation) 
                {         
-                   reservation.splice(key, 1);
+                   localStorage.removeItem(key);
                    localStorage.setItem("reservation", JSON.stringify(reservation));
                    alert("Reservation was deleted");
                });
@@ -99,12 +99,12 @@
                                         url: "data.json", //What i am getting
                                         type: "GET", //I am getting not posting 
                                         dataType : "json", //Getting JSON data, located in data.json   
-                                        success:function(result); //Going to use dataCall for the name to call my data
+                                        success:function(result) //Going to use dataCall for the name to call my data
                                         {
                                                 console.log("This is my JSON Data", result); 
                                                 for(var i in result)
                                                 {
-                                                      id = Math.floor(Math.random()*100000001);
+                                                     var id = Math.floor(Math.random()*100000001);
                                                       localStorage.setItem(id, JSON.stringify(result[i]));
                                                 }
                                                
@@ -145,7 +145,7 @@
                             
                             );
                             
-                            for(var i in reservation)
+                            for(i in reservation)
                             {
                                 var res = JSON.parse(reservation[i]);
                                 $("#reservationList tbody").append(
@@ -159,7 +159,7 @@
                             }
                     
                     }
-           };
+           });
                    
                     $("#form").on("submit",function(add, edit){
                         if(operation == "add")
@@ -170,7 +170,7 @@
                     });
                    
                    
-                  $(".editItem").on('click',function()
+                  $(".editItem").on('click', function(reservation)
                    {
                         operation = "edit";
                         
@@ -192,7 +192,4 @@
                         key = parseInt($(this).attr("alt").replace("Delete", ""), 10);
                         deleteData();
                         displayData();
-                   });
- 
-             
-        }); //End of dataPage
+                   }); //End of dataPage
