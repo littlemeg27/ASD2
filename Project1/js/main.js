@@ -87,7 +87,7 @@
         $('#dataPage').on('pageinit', function(reservation, item)
         {
         
-            var displayData = function(reservation,item)
+            $('#dataPage').on('click', function(reservation, item)
             {
                
                    if(localStorage.length === 0) 
@@ -123,7 +123,7 @@
                                         }
                                });
                         };
-                   };
+                   });
 
                            
                    for(var i=0, len=localStorage.length; i<len; i++)
