@@ -16,9 +16,9 @@
         $('#addItem').on('pageinit', function()
         {
             $(function()
-            {
+            {	
+            	
                 var reservation = localStorage.getItem("reservation");//Retrieve the stored data
-                
                 reservation = JSON.parse(reservation); //Converts string to object
                 
                 if(reservation === null) //If there is no data, initialize an empty array
@@ -107,19 +107,6 @@
                                                      var id = Math.floor(Math.random()*100000001);
                                                       localStorage.setItem(id, JSON.stringify(result[i]));
                                                 }
-                                               
-                                                   /* for(var i=0, len=result.reservation.length; i<len; i++)//for loop to read the whole json
-                                                    {
-                                                        var item = result.reservation[i];
-                                                       
-                                                        $('' +  
-                                                                   '<li>' +
-                                                                    '<h3>' + item.lastName[1] + '<br>' + '</h3>'+ 
-                                                                    '<p>' + item.phoneNumber[1] + '</p>'+
-                                                                '</li>' 
-                                                         ).appendTo("#dataPage");
-                                                    }
-                                                    $('#dataPage').listview();*/
                                         }
                                });
                         };
