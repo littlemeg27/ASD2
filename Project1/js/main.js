@@ -115,6 +115,8 @@
                            
                    for(var i=0, len=localStorage.length; i<len; i++)
                    {    
+                   console.log(i ,"i");
+                   console.log(localStorage, "LS");
                           $('#dataPage').empty();
                           $("#reservationList").html(
                             
@@ -134,6 +136,8 @@
                             
                             for(i in reservation)
                             {
+                             console.log(i ,"i2");
+                             console.log(localStorage ,"LS2");
                                 var res = JSON.parse(reservation[i]);
                                 $("#reservationList tbody").append(
                                      
