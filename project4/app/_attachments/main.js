@@ -4,10 +4,10 @@
 
                $('#home').on('pageinit', function()
                 {
-            	   $('#press').on('click', function()
+                   $('#press').on('click', function()
                    {
-            	   
-            	   console.log(error);
+                   
+                   console.log(error);
                    console.log(parseerror);
                    $.couch.db("project4").view("app/reservation",
                    {
@@ -26,7 +26,8 @@
                                                               );                                                            
                                });
                                $('#reservationList').listview('refresh');
-                         };
+                         }
+                         });
                          error: function(error, parseerror)
                          {
                          
