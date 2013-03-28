@@ -20,7 +20,7 @@
                                             $('#reservationList').append(
                                             $('<li>').append(
                                             $('<a>').attr("href", "#")
-                                            		.text(lastName)
+                                            		.text(restaurant)
                                             				)
                                             							);
                                                     
