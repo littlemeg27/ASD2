@@ -4,6 +4,8 @@
 
                $('#home').on('pageinit', function()
                 {
+            	   $('#press').on('click', function()
+                   {
             	   
             	   console.log(error);
                    console.log(parseerror);
@@ -30,6 +32,7 @@
                          
                          }
                      });
+                   });
                 });
                
                    var urlVars = function()
