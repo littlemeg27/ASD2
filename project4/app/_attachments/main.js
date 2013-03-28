@@ -14,17 +14,17 @@
                                   var item = (value.value || value.doc);                                                    
                                   $('#reservationList').append(
                                   $('<li>').append(
-                                  $('<a>').attr("href", "restaurant.html?lastName=" + item.lastName)
+                                  $('<a>').attr("href", "lastName.html?lastName=" + item.lastName)
                                           .text(item.lastName)
                                                   )
                                                               );                                                            
                                });
-                               $('#reservationList').listview('refresh');
+                               //$('#reservationList').listview('refresh');
                          }
                    });               
                 });
                
-                 /*  var urlVars = function()
+                   var urlVars = function()
                    {
                       var urlData = $($.mobile.activePage).data("url");
                       var urlParts = urlData.split('?');
@@ -39,39 +39,22 @@
                                       urlValues[key] = value;
                               }
                       return urlValues;
-                   };*/
+                   };
                
                $('#lastName').on('pageinit', function()
                {
-            	   var urlData = $($.mobile.activePage).data("url");
-                   var urlParts = urlData.split('?');
-                   var urlPairs = urlParts[1].split('&');
-                   var urlValues = {};
-                   
-                       for(var pair in urlPairs)
-                           {
-                               var keyValue = urlPairs[pair].split('=');
-                               var key = decodeURIComponent(keyValue[0]);
-                               var value = decodeURIComponent(keyValue[1]);
-                                   urlValues[key] = value;
-                           }
-                       console.log(urlValues);
-            	   
-            	   
-            	   
-            	   
-            	   /*  var lastName = urlVars()["lastName"];
+                      var lastName = urlVars()["reservation"];
+                      console.log(reservation);
                       $.couch.db("project4").view("app/reservation",
                       {
                           key: + lastName
                       }
-                      );*/
+                      );
                });
-            	  
-            	  
+                  
+                  
                             
              
-
 
 
 
