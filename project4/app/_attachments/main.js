@@ -22,6 +22,11 @@
                                });
                                $('#reservationList').listview('refresh');
                          }
+                         error: function(error, parseerror) 
+                         { 
+                         console.log(error); 
+                         console.log(parseerror);
+                         }
                    });               
                 });
                
