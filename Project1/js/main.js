@@ -81,6 +81,8 @@
         $('#dataPage').on('pageinit', function()
         {
         
+            $('#displayData').on('click', function()
+            {
                    if(localStorage.length === 0) 
                        {    
                            alert("No reservations saved!");
@@ -125,11 +127,7 @@
                             }
 
                    }
-                 
-                 
-                 
-                 
-                 
+                  
                  
                  var autoFillData = function()
                  {
@@ -149,6 +147,9 @@
                          }
                      });
                   };
+                  
+                  
+              });
              
          
 
@@ -189,7 +190,6 @@
                    
                    
                    });
-
 
 
 
