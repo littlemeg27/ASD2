@@ -7,8 +7,7 @@
                    $('#press').on('click', function()
                    {
                    
-                   console.log(error);
-                   console.log(parseerror);
+                   
                    $.couch.db("project4").view("app/reservation",
                    {
                          success:function(data)
@@ -26,10 +25,11 @@
                                                               );                                                            
                                });
                                $('#reservationList').listview('refresh');
-                         }
+                         },
                    error: function(error, parseerror)
                    {
-                   
+                	   console.log(error);
+                       console.log(parseerror);
                    }
                          });
                          
