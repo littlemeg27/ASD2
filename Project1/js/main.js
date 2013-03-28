@@ -15,7 +15,7 @@
         
         $('#addItem').on('pageinit', function()
         {
-                var reservation = localStorage.getItem("reservation");//Retrieve the stored data
+                localStorage.getItem("reservation");//Retrieve the stored data
                 reservation = JSON.parse(reservation); //Converts string to object
                 
                 if(reservation === null) //If there is no data, initialize an empty array
