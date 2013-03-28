@@ -8,6 +8,7 @@
                    {
                          success:function(data)
                          {
+                             console.log(data); //This works
                              $('#reservationList').empty();  
                              $.each(data.rows, function(index, value)
                                {
@@ -19,7 +20,7 @@
                                                   )
                                                               );                                                            
                                });
-                               //$('#reservationList').listview('refresh');
+                               $('#reservationList').listview('refresh');
                          }
                    });               
                 });
@@ -27,6 +28,7 @@
                    var urlVars = function()
                    {
                       var urlData = $($.mobile.activePage).data("url");
+                      console.log(urlData);
                       var urlParts = urlData.split('?');
                       var urlPairs = urlParts[1].split('&');
                       var urlValues = {};
@@ -43,32 +45,30 @@
                
                $('#lastName').on('pageinit', function()
                {
-                      var lastName = urlVars()["reservation"];
-                      console.log(reservation);
+                      var lastName = urlVars()["item.reservation"];
+                      
                       $.couch.db("project4").view("app/reservation",
                       {
-                          key: + lastName
-                      }
-                      );
-               });
-                  
-                  
+                          success:function(data)
+                          {
+                                  $.each(data.rows, function(index, value)
+                                  {
+                                      var lastName         = value.value.lastName;
+                                      var numberOfPeople   = value.value.numberOfPeople;
+                                      var phoneNumber      = value.value.phoneNumber;
+                                      var restaurant       = value.value.restaurant;
+                                      
+                                      $('#lastNameList').append(
+                                      $('<li>').append(
+                                      $('<a>').attr("href", "#")
+                                              .text(restaurant)
+                                                      )
+                                                                  );
+                                              
+                                  });
+                                  $('#lastNameList').listview('refresh');
+                          }      
                             
-             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                      });
+                          
+               });
