@@ -82,9 +82,6 @@
         
         $('#dataPage').on('pageinit', function()
         {
-        
-            $('#dataPage').on('click', function()
-            {
                
                    if(localStorage.length === 0) 
                    {    
@@ -143,7 +140,6 @@
                             }
                     
                     }
-           });
                    
                     $("#form").on("submit",function(add, edit){
                         if(operation == "add")
