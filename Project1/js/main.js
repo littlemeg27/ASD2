@@ -92,7 +92,7 @@
                        
                                 $.ajax(
                                 {    
-                                        url: "xhr/data.json", //What i am getting
+                                        url: "/xhr/data.json", //What i am getting
                                         type: "GET", //I am getting not posting 
                                         dataType : "json", //Getting JSON data, located in data.json   
                                         success:function(result) //Going to use dataCall for the name to call my data
