@@ -80,10 +80,10 @@
         
         
         
-        $('#dataPage').on('pageinit', function(reservation, item)
+        $('#dataPage').on('pageinit', function()
         {
         
-            $('#dataPage').on('click', function(reservation, item)
+            $('#dataPage').on('click', function()
             {
                
                    if(localStorage.length === 0) 
