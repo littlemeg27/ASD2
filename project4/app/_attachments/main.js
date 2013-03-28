@@ -27,14 +27,15 @@
                                });
                                $('#reservationList').listview('refresh');
                          }
+                   error: function(error, parseerror)
+                   {
+                   
+                   }
                          });
-                         error: function(error, parseerror)
-                         {
                          
-                         }
                      });
-                   });
-                });
+                 });
+              
                
                    var urlVars = function()
                    {
