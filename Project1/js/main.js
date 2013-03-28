@@ -16,7 +16,7 @@
         
         $('#addItem').on('pageinit', function()
         {
-                localStorage.getItem("reservation");//Retrieve the stored data
+                localStorage.getItem("reservations");//Retrieve the stored data
                 reservations = JSON.parse(reservations); //Converts string to object
                             
             var myForm = $('#waitForm');
