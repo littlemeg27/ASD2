@@ -17,7 +17,7 @@
         $('#addItem').on('pageinit', function()
         {
                 localStorage.getItem("reservation");//Retrieve the stored data
-                reservation = JSON.parse(reservation); //Converts string to object
+                reservations = JSON.parse(reservations); //Converts string to object
                             
             var myForm = $('#waitForm');
             var errorFormLink = $('#errorFormLink');
@@ -48,7 +48,7 @@
             });
 
         
-            var storeData = function(reservation)
+            var storeData = function(reservations)
             {   
                 var item = JSON.stringify(
                 {
@@ -58,19 +58,19 @@
                     numberOfPeople  : $("#numberOfPeople").val() 
                 });
                   
-                reservation.push(item);
-                localStorage.setItem("reservation", JSON.stringify(reservation));
+                reservations.push(item);
+                localStorage.setItem("reservations", JSON.stringify(reservations));
                 alert("The reservation was saved!");
                 return true;
             };
                 
                  
                
-              var deleteData = $('#deleteData').on('click', function(key, reservation) 
+              var deleteData = $('#deleteData').on('click', function(key, reservations) 
                {         
                    localStorage.removeItem(key);
-                   localStorage.setItem("reservation", JSON.stringify(reservation));
-                   alert("Reservation was deleted");
+                   localStorage.setItem("reservations", JSON.stringify(reservations));
+                   alert("The reservations were deleted");
                });
            
                
@@ -123,10 +123,10 @@
                             "</tbody>"
                             );
 
-                            for(i in reservation)
+                            for(i in reservations)
                             {
-                                var res = JSON.parse(reservation[i]);
-                                console.log('Reservation', reservation[i]);
+                                var res = JSON.parse(reservations[i]);
+                                console.log('reservations', reservations[i]);
                                 $("#reservationList tbody").append(
                                      
                                      "<tr>" +
@@ -148,13 +148,13 @@
                     });
                    
                    
-                  $(".editItem").on('click', function(reservation)
+                  $(".editItem").on('click', function(reservations)
                    {
                         operation = "edit";
                         
                         key = parseInt($(this).attr("alt").replace("Edit", ""), 10);
                         
-                        var res = JSON.parse(reservation[key]);
+                        var res = JSON.parse(reservations[key]);
                         
                         $("#txtLastName").val(res.lastName);
                         $("#txtPhoneNumber").val(res.phoneNumber);
