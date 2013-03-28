@@ -4,6 +4,7 @@
 
         var operation = "add"; //Trying something new i found hope this works!
         var key = -1; //Index
+        var reservation = [];
 
         $('#home').on('pageinit', function(data)
         {
@@ -17,9 +18,6 @@
         {
                 localStorage.getItem("reservation");//Retrieve the stored data
                 reservation = JSON.parse(reservation); //Converts string to object
-                
-                if(reservation === null) //If there is no data, initialize an empty array
-                { reservation = [];}
                             
             var myForm = $('#waitForm');
             var errorFormLink = $('#errorFormLink');
