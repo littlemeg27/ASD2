@@ -81,75 +81,75 @@
         $('#dataPage').on('pageinit', function()
         {
         
-        		   if(localStorage.length === 0) 
-	                   {    
-	                       alert("No reservations saved!");
-	                       autoFillData();
-	                   }
-	                   
-	               else
-	               {
-			                for(var i=0, len=localStorage.length; i<len; i++)
-			                {    
-	                 
-		                          $('#dataPage').empty();
-		                          $("#reservationList").html(
-		                            
-		                            "<thead>" +
-		                            "<tr>" +
-		                            "<th></th>" +
-		                            "<th>Last Name</th>" + 
-		                            "<th>Phone Number</th>" +
-		                            "<th>Restaurant</th>" +
-		                            "<th>Number Of People</th>" +
-		                            "</tr>" +
-		                            "</thead>" +
-		                            "<tbody>" +
-		                            "</tbody>"
-		                            );
-		
-		                            for(i in reservations)
-		                            {
-		                                var res = JSON.parse(reservations[i]);
-		                                console.log('reservations', reservations[i]);
-		                                $("#reservationList tbody").append(
-		                                     
-		                                     "<tr>" +
-		                                     "<td><a href='#' key='" + res.id + "' class='editItem'></a>" + "<a href='#' key='" + res.id + "' class='deleteItem'></a></td>" + "<td>" + res.lastName[1] + "</td>" + "<td>" + res.phoneNumber[1] + "</td>" +
-		                                     "<td>" + res.restaurant[1] + "</td>" +
-		                                     "<td>" + res.numberOfPeople[1] + "</td>" +
-		                                     "</tr>"
-		                                 );
-		                            }
-	                    
-	                        }
+                   if(localStorage.length === 0) 
+                       {    
+                           alert("No reservations saved!");
+                           autoFillData();
+                       }
+                       
+                   else
+                   {
+                            for(var i=0, len=localStorage.length; i<len; i++)
+                            {    
+                     
+                                  $('#dataPage').empty();
+                                  $("#reservationList").html(
+                                    
+                                    "<thead>" +
+                                    "<tr>" +
+                                    "<th></th>" +
+                                    "<th>Last Name</th>" + 
+                                    "<th>Phone Number</th>" +
+                                    "<th>Restaurant</th>" +
+                                    "<th>Number Of People</th>" +
+                                    "</tr>" +
+                                    "</thead>" +
+                                    "<tbody>" +
+                                    "</tbody>"
+                                    );
+        
+                                    for(i in reservations)
+                                    {
+                                        var res = JSON.parse(reservations[i]);
+                                        console.log('reservations', reservations[i]);
+                                        $("#reservationList tbody").append(
+                                             
+                                             "<tr>" +
+                                             "<td><a href='#' key='" + res.id + "' class='editItem'></a>" + "<a href='#' key='" + res.id + "' class='deleteItem'></a></td>" + "<td>" + res.lastName[1] + "</td>" + "<td>" + res.phoneNumber[1] + "</td>" +
+                                             "<td>" + res.restaurant[1] + "</td>" +
+                                             "<td>" + res.numberOfPeople[1] + "</td>" +
+                                             "</tr>"
+                                         );
+                                    }
+                        
+                            }
 
-	               }
-        		 
-        		 
-        		 
-        		 
-        		 
-        		 
-        		 var autoFillData = function()
-        		 {
-	        		 $.ajax(
-	                 {    
-	                     url: "/xhr/data.json", //What i am getting
-	                     type: "GET", //I am getting not posting 
-	                     dataType : "json", //Getting JSON data, located in data.json   
-	                     success:function(result) //Going to use dataCall for the name to call my data
-	                     {
-	                         console.log("This is my JSON Data", result); 
-	                         for(var i in result)
-	                         {
-	                               var id = Math.floor(Math.random()*100000001);
-	                               localStorage.setItem(id, JSON.stringify(result[i]));
-	                         }
-	                     }
-	                 });
-	              };
-	         
+                   }
+                 
+                 
+                 
+                 
+                 
+                 
+                 var autoFillData = function()
+                 {
+                     $.ajax(
+                     {    
+                         url: "/xhr/data.json", //What i am getting
+                         type: "GET", //I am getting not posting 
+                         dataType : "json", //Getting JSON data, located in data.json   
+                         success:function(result) //Going to use dataCall for the name to call my data
+                         {
+                             console.log("This is my JSON Data", result); 
+                             for(var i in result)
+                             {
+                                   var id = Math.floor(Math.random()*100000001);
+                                   localStorage.setItem(id, JSON.stringify(result[i]));
+                             }
+                         }
+                     });
+                  };
+             
          
 
                            
@@ -188,4 +188,10 @@
                    }); //End of dataPage
                    
                    
-                   }
+                   });
+
+
+
+
+
+

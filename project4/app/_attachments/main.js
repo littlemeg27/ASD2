@@ -4,20 +4,20 @@
 
                $('#home').on('pageinit', function()
                 {
-            	   $.couch.db("project4").view("plugin/programs",
+            	   $.couch.db("project4").view("design/app",
             		 success:function(data)
             		 {
             		 
-	                       $.each(data.rows, function(index, reservation)
+	                       $.each(data.rows, function(index, reservations)
 	                       {
-	                          var lastName         = reservation.value.lastName;
-	                          var numberOfPeople   = reservation.value.numberOfPeople;
-	                          var phoneNumber      = reservation.value.phoneNumber;
-	                          var restaurant       = reservation.value.restaurant;
+	                          var lastName         = reservations.value.lastName;
+	                          var numberOfPeople   = reservations.value.numberOfPeople;
+	                          var phoneNumber      = reservations.value.phoneNumber;
+	                          var restaurant       = reservations.value.restaurant;
 	                                            
 	                          $('#reservationList').append(
 	                          $('<li>').append(
-	                          $('<a>').attr("href", "#")
+	                          $('<a>').attr("href", "reservations.html?reservations
 	                                  .text(lastName)
 	                                          )
 	                                            		  );
