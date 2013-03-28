@@ -6,7 +6,7 @@
                 {
                    $('#press').on('click', function()
                    {
-                   
+                   debugger;
                    
                    $.couch.db("project4").view("app/reservation",
                    {
@@ -22,20 +22,22 @@
                                   $('<a>').attr("href", "lastName.html?lastName=" + item.lastName)
                                           .text(item.lastName)
                                                   )
-                                                              );                                                            
+                                                                        );                                                            
                                });
                                $('#reservationList').listview('refresh');
                          },
                    error: function(error, parseerror)
                    {
+                	   debugger;
                 	   console.log(error);
                        console.log(parseerror);
+                       debugger;
                    }
                          });
                          
                      });
                  });
-              
+               debugger;
                
                    var urlVars = function()
                    {
