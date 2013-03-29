@@ -5,6 +5,8 @@
         var operation = "add"; //Trying something new i found hope this works!
         var key = -1; //Index
         var reservations = [];
+        localStorage.getItem("reservations");//Retrieve the stored data
+        reservations = JSON.parse(reservations); //Converts string to object
 
         $('#home').on('pageinit', function(data)
         {
@@ -16,8 +18,7 @@
         
         $('#addItem').on('pageinit', function()
         {
-                localStorage.getItem("reservations");//Retrieve the stored data
-                reservations = JSON.parse(reservations); //Converts string to object
+                
                             
             var myForm = $('#waitForm');
             var errorFormLink = $('#errorFormLink');
@@ -94,7 +95,7 @@
                             for(var i=0, len=localStorage.length; i<len; i++)
                             {    
                      
-                                  $('#dataPage').empty();
+                                  $('#reservationList').empty();
                                   $("#reservationList").html(
                                     
                                     "<thead>" +
