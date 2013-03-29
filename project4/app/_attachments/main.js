@@ -24,9 +24,27 @@
                 });
             });
             
-            var urlVars = function()
+            
+         /*  $('#addItem').on("pageinit", function()
             {
+            	var userDoc = {
+            		    _id: "org.couchdb.user:littlemeg27",
+            		    name: "Brenna"
+            		};
+            		$.couch.signup(userDoc, "supersecurepassword", {
+            		    success: function(data) {
+            		        console.log(data);
+            		    },
+            		    error: function(status) {
+            		        console.log(status);
+            		    }
+            		});
+            });*/
+            
+            var urlVars = function()
+            { 
                 var urlData = $($.mobile.activePage).data("url");
+                console.log(urlData)
                 var urlParts = urlData.split('?');
                 var urlPairs = urlParts[1].split('&');
                 var urlValues = {};
